@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/alex/verilog/prng/tb_prng_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_prng" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/tb_prng/seed" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">seed[31:0]</obj_property>
+      <obj_property name="ObjectShortName">seed[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_prng/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_prng/start" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_prng/uut/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_prng/uut/q" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">q[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_prng/uut/r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r[31:0]</obj_property>
+      <obj_property name="ObjectShortName">r[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_prng/uut/y" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">y[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_prng/uut/z" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">z[31:0]</obj_property>
+      <obj_property name="ObjectShortName">z[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_prng/uut/rand" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rand[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rand[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_prng/uut/cont" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cont</obj_property>
+      <obj_property name="ObjectShortName">cont</obj_property>
+   </wvobject>
+   <wvobject fp_name="group68" type="group">
+      <obj_property name="label">New Group</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_prng/uut/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">a[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/m" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/state" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/param_a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">param_a[15:0]</obj_property>
+         <obj_property name="ObjectShortName">param_a[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/param_m" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">param_m[31:0]</obj_property>
+         <obj_property name="ObjectShortName">param_m[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/quot" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">quot[31:0]</obj_property>
+         <obj_property name="ObjectShortName">quot[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/rem" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rem[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rem[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/s" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/int_seed" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">int_seed[3:0]</obj_property>
+         <obj_property name="ObjectShortName">int_seed[3:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div_y" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">div_y[31:0]</obj_property>
+         <obj_property name="ObjectShortName">div_y[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div_x" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">div_x[31:0]</obj_property>
+         <obj_property name="ObjectShortName">div_x[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div_q" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">div_q[31:0]</obj_property>
+         <obj_property name="ObjectShortName">div_q[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div_r" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">div_r[31:0]</obj_property>
+         <obj_property name="ObjectShortName">div_r[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div_start" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">div_start</obj_property>
+         <obj_property name="ObjectShortName">div_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div_done" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">div_done</obj_property>
+         <obj_property name="ObjectShortName">div_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/sub_a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sub_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sub_a[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/sub_b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sub_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sub_b[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/sub_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sub_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sub_out[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/m1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m1[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/m2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">m2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m2[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/sub_res" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sub_res[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sub_res[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider33" type="divider">
+      <obj_property name="label">New Divider</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="group69" type="group">
+      <obj_property name="label">New Group</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_prng/uut/div0/en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div0/y" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">y[31:0]</obj_property>
+         <obj_property name="ObjectShortName">y[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div0/x" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">x[31:0]</obj_property>
+         <obj_property name="ObjectShortName">x[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div0/q" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">q[31:0]</obj_property>
+         <obj_property name="ObjectShortName">q[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div0/r" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">r[31:0]</obj_property>
+         <obj_property name="ObjectShortName">r[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_prng/uut/div0/done" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+      <wvobject fp_name="group51" type="group">
+         <obj_property name="label">New Group</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/tb_prng/uut/div0/orig_x" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">orig_x[31:0]</obj_property>
+            <obj_property name="ObjectShortName">orig_x[31:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_prng/uut/div0/state" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">state[2:0]</obj_property>
+            <obj_property name="ObjectShortName">state[2:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_prng/uut/div0/dividend" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">dividend[31:0]</obj_property>
+            <obj_property name="ObjectShortName">dividend[31:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_prng/uut/div0/divisor" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">divisor[31:0]</obj_property>
+            <obj_property name="ObjectShortName">divisor[31:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_prng/uut/div0/m" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">m[5:0]</obj_property>
+            <obj_property name="ObjectShortName">m[5:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_prng/uut/div0/n" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">n[5:0]</obj_property>
+            <obj_property name="ObjectShortName">n[5:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_prng/uut/div0/i" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">i[4:0]</obj_property>
+            <obj_property name="ObjectShortName">i[4:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_prng/uut/div0/tmp_q" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">tmp_q[31:0]</obj_property>
+            <obj_property name="ObjectShortName">tmp_q[31:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_prng/uut/div0/tmp2" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">tmp2[31:0]</obj_property>
+            <obj_property name="ObjectShortName">tmp2[31:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>
