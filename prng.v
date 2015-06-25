@@ -101,7 +101,7 @@ always @(posedge clk) begin
 		done <= 0;
 		int_seed <= 0;
 		param_a <= 16'h41a7; // 16807
-		param_m <= {0 & 31{1'b1}}; // 2^31 - 1
+		param_m <= {{1'b0},{31{1'b1}}}; // 2^31 - 1
 		quot <= 127773;
 		rem <= 2836;
 		div_start <= 0;

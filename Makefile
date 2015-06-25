@@ -1,9 +1,8 @@
-DUT=mult
-TB=$(DUT)_tb
-SRC=*.sv
+SRC=*.v
 SIMFLAGS=-c -do sim.do
 
-simulate: $(SRC)
+all: $(SRC)
 	vlog $(SRC)
+mult: all
 	vsim $(SIMFLAGS) $(TB)
 
