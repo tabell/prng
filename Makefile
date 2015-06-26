@@ -5,4 +5,6 @@ all: $(SRC)
 	vlog $(SRC)
 mult: all
 	vsim $(SIMFLAGS) $(TB)
+top: all
+	vsim $(SIMFLAGS) tb_prng
 

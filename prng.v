@@ -33,7 +33,7 @@ reg [31:0] y;
 reg [31:0] z;
 reg [31:0] q;
 reg [31:0] r;
-reg [31:0] s;
+//reg [31:0] s;
 reg [31:0] m1;
 reg [31:0] m2;
 reg [31:0] sub_res;
@@ -62,34 +62,6 @@ div div0 (
     .done	(div_done)
 );
 
-// always @(sel) begin
-// 	if (sel == 0) int_seed <= 5;
-// 	if (sel == 1) int_seed <= 7;
-// 	if (sel == 2) int_seed <= 9;
-// 	if (sel == 3) int_seed <= 11;
-// end
-
-// always @(state) begin // multiplexors
-// 	case (state)
-// 		1 : begin
-
-// 		end
-// 		2 : begin
-
-// 		end
-// 		5 : begin
-
-// 		end
-// 		default : begin
-// 			div_y <= 32'bZ;;
-// 			div_x <= 32'bZ;;
-// 			// div_q <= div_q;
-// 			// div_r <= div_r;
-// 		end
-// 	endcase // state
-// end
-
-
 always @(posedge clk) begin
 	if(rst) begin
 		q <= 0;
@@ -97,7 +69,6 @@ always @(posedge clk) begin
 		y <= 0;
 		z <= 0;
 		state <= 0;
-		s <= 0;
 		done <= 0;
 		int_seed <= 0;
 		param_a <= 16'h41a7; // 16807
@@ -107,24 +78,19 @@ always @(posedge clk) begin
 		div_start <= 0;
 	end else begin
 		if (div_start == 1) div_start <= 0;
-
-
-
 		 if (state == 0) begin  // 0 - idle
 		 	if (start == 1) begin
 		 		// store in case inputs change
 		 		param_m <= m;
 		 		param_a <= a;
-		 		if (cont == 0)
-		 			int_seed <= seed;
-		 		else
-		 			int_seed <= s;
+		 	  int_seed <= seed;
 		 		// start first op
-				div_start <= 1;
+				div_start <= 1; // this division is not necessary as per gebali in class june 25
 				div_y <= m;
 				div_x <= a;
 		 		state <=1;
 		 	end 
+      else done <= 0;
 		 end
 		 if (state == 1) begin // 1 - division 1
 		 	if (div_done == 1) begin
@@ -159,10 +125,10 @@ always @(posedge clk) begin
 		 end
 		 if (state == 5) begin // 5 - division 3
 		 	if (div_done == 1) begin
-				s <= div_r;
 				rand <= div_r;
-				$display("Generated random number %i",div_r);
+				//$display("%g: Generated random number %g",$time,div_r);
 		 		state <= 0;
+        done <= 1;
 		 	end
 			// int_seed <= 
 		 end

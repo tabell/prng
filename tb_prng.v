@@ -1,27 +1,5 @@
 `timescale 1ns / 1ps
 
-////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer:
-//
-// Create Date:   20:38:49 05/11/2015
-// Design Name:   prng
-// Module Name:   /home/alex/verilog/prng/tb_prng.v
-// Project Name:  prng
-// Target Device:  
-// Tool versions:  
-// Description: 
-//
-// Verilog Test Fixture created by ISE for module: prng
-//
-// Dependencies:
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-////////////////////////////////////////////////////////////////////////////////
-
 module tb_prng;
 
 	// Inputs
@@ -49,6 +27,7 @@ module tb_prng;
 		.done(done), 
 		.rand(rand)
 	);
+  integer counter = 0;
 
 	initial begin
 		// Initialize Inputs
@@ -59,16 +38,36 @@ module tb_prng;
 		seed = 1346601079;
 		start = 0;
 		cont = 0;
+    counter = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
+    $display("%g: Starting sim",$time);
 		rst <= 0;
         
 		// Add stimulus here
 		// sel <= 1;
 
-		#50 start <=1;
-		#3500 cont <=1 ;
+//    $monitor("rand=%.10g, start=%g, done=%g, cont=%g",rand,start,done,cont);
+    while (counter < 10) begin
+
+		  #100 start <=1; // start generation
+      counter <= counter + 1;
+      while (done == 0) begin // loop until done
+        #100;// $display("%g: done",$time);
+      end
+      start <= 0;
+      #100;
+      while (done == 1) begin // loop until done signal deasserted
+      #100;
+      end
+
+      seed <= rand;
+      $display("%g: rand=%.10g, start=%g, done=%g, cont=%g",$time,rand,start,done,cont);
+      #50;
+    end
+   // #100000;
+    $finish;
 
 	end
 

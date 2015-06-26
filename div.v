@@ -94,7 +94,7 @@ always @(posedge clk) begin : proc_divide
 			end
 			else done <= 0;
 
-			state <= 3;
+			state <= 3; // think i wrote this so all control paths are defined
 		end
 		
 	end
