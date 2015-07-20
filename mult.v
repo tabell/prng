@@ -37,8 +37,6 @@ module mult#(
 
 	reg [1:0] state;
 
-	// reg ctrl_done;
-	// reg [out_width:0] data_result;
 	
 	
 	integer accum,i,j;
@@ -46,35 +44,35 @@ module mult#(
 
 always @(posedge clk) begin : proc_mult
 	if (rst == 1) begin
-
 		state <= 0;
 		ctrl_done <= 0;
 	end else begin
-		if(ctrl_enable) begin 
-			if (state == 0) begin
-				$display(" -- loading inputs");
-				// sample inputs on trigger
-				a <= data_multiplicand;
-				b <= data_multiplier;
+		if (state == 0) begin
+			if(ctrl_enable == 1) begin 
 				state <= 1;
 			end
-			if(state == 1) begin
-				$display(" -- starting: state=%g, a=%.12g, b=%.12g",state,a,b);
-				accum = 0;
-				for (i = 0; i < in_width; i=i+1) begin
-					for (j = 0; j < in_width; j=j+1) begin
-						pp = ((a[i] & b[j]));
-						// if (pp != 0) begin
-							// $display("%g: i=%g, j=%g a[i]=%b, b[j]=%b, pp=%b<<%g accum=%g",$time, 
-							// i,j,a[i],b[j],a[i] & b[j],(i+j),accum);
-						// end
-						accum = accum + (pp<<(i+j));
-					end
+		end
+		if (state == 1) begin
+			// sample inputs on trigger
+			a <= data_multiplicand;
+			b <= data_multiplier;
+			ctrl_done <= 0;
+			state <= 2;
+		end
+		if(state == 2) begin
+			accum = 0;
+			for (i = 0; i < in_width; i=i+1) begin
+				for (j = 0; j < in_width; j=j+1) begin
+					pp = ((a[i] & b[j]));
+					accum = accum + (pp<<(i+j));
 				end
-				data_result <= accum;
-				ctrl_done <= 1;
+			end
+			data_result <= accum;
+			if (ctrl_enable == 0) begin
 				state <= 0;
-				$display(" -- done a=%.12g, b=%.12g = %.12g",a,b,accum);
+				ctrl_done <= 0;
+			end else begin
+				ctrl_done <= 1;
 			end
 		end
 	end
