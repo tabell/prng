@@ -35,7 +35,10 @@ module tb_prng;
 		rst = 1;
 		m = 2147483647;
 		a = 16807;
-		seed = 1346601079;
+		// seed = 1346601079;
+		// seed = 338579150;
+		seed = 1749629467;
+		// seed = 2072086837;
 		start = 0;
 		cont = 0;
     counter = 0;
@@ -49,7 +52,7 @@ module tb_prng;
 		// sel <= 1;
 
 //    $monitor("rand=%.10g, start=%g, done=%g, cont=%g",rand,start,done,cont);
-    while (counter < 10) begin
+    while (counter < 2) begin
 
 		  #100 start <=1; // start generation
       counter <= counter + 1;

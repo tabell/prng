@@ -36,7 +36,8 @@ module mult_tb;
 		clk = 0;
 		rst = 1;
 
-		$monitor("%g: a=%b, b=%b, en=%g, done=%g, res=%g", $time,
+		// $monitor("%g: a=%b, b=%b, en=%g, done=%g, res=%g", $time,
+		$monitor("%g: a=%g, b=%g, en=%g, done=%g, res=%g", $time,
 			data_multiplicand,data_multiplier,ctrl_enable,ctrl_done,data_result);
 		#100; // Wait 100 ns for global reset to finish
 		$display("%g: RESET OVER",$time);
@@ -48,7 +49,7 @@ module mult_tb;
 			#10;
 		end
 		#10 ctrl_enable <= 0;
-		assert(data_result == data_multiplicand*data_multiplier); // else $error("\033[1;31m[ERROR]\033[0m wrong result");
+		if (data_result != data_multiplicand*data_multiplier) $error("\033[1;31m[ERROR]\033[0m wrong result");
 		$finish;
 
 	end
