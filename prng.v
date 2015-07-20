@@ -50,7 +50,11 @@ reg [31:0] sub_a;
 reg [31:0] sub_b;
 reg [31:0] sub_out;
 
-
+reg [31:0] mult_in_a;
+reg [31:0] mult_in_b;
+reg mult_enable;
+wire mult_done;
+wire [31:0] mult_out;
 
 div div0 (
 	.clk	(clk),
@@ -61,6 +65,16 @@ div div0 (
     .r	(div_r),
     .done	(div_done)
 );
+
+mult #(32) mult0 (
+	.data_multiplicand(mult_in_a),
+	.data_multiplier(mult_in_b),
+	.data_result(mult_out),
+	.ctrl_enable(mult_enable),
+	.ctrl_done(mult_done),
+	.rst(rst),
+	.clk(clk)
+	);
 
 always @(posedge clk) begin
 	if(rst) begin
