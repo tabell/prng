@@ -24,7 +24,7 @@ module prng (
 );
 
 
-reg [2:0] state; 
+reg [3:0] state; 
 reg [15:0] param_a;
 reg [31:0] param_m;
 reg [31:0] quot;
@@ -78,6 +78,7 @@ mult #(32) mult0 (
 
 always @(posedge clk) begin
 	if(rst) begin
+		$monitor("%g: state: %g",$time, state);
 		q <= 0;
 		r <= 0;
 		y <= 0;
@@ -106,7 +107,7 @@ always @(posedge clk) begin
 		 	end 
       else done <= 0;
 		 end
-		 if (state == 1) begin // 1 - division 1
+		 if (state == 1) begin //
 		 	if (div_done == 1) begin
 		 		// finish this division
 				q <= div_q;
@@ -118,31 +119,61 @@ always @(posedge clk) begin
 				div_x <= div_q; // operand forwarding
 		 	end
 		 end
-		 if (state == 2) begin // 2 - division 2
+		 if (state == 2) begin //
 		 	if (div_done == 1) begin
 		 		state <= 3;
+
 				z <= div_q;
 				y <= div_r;
-				m1 <= param_a*div_r;
+
+				mult_in_a <= param_a;
+				mult_in_b <= div_r;
+				mult_enable <= 1;
+
+				// temp bypass
+				// m1 <= param_a*div_r;
 				m2 <= div_q*r;
+
 		 	end
 		 end
-		 if (state == 3) begin // 3 - multiplication
-			state <= 4;
+		 if (state == 3) begin
+		 	if (mult_done == 1) begin
+			 	state <= 4;
+			 	mult_enable <= 0;
+				m1 <= mult_out;
+				$display("Got a correct result");
+				mult_in_a <= div_q;
+				mult_in_b <= r;
+			end
+		 end
+		 if (state == 4) begin
+				state <= 5;
+				mult_enable <= 1;
+		 end
+		 if (state == 5) begin 
+		 	if (mult_done == 1) begin
+				// m2 <= mult_out;
+				state <= 6;
+				mult_enable <= 0;
+			end
+		 end
+		 if (state == 6) begin //
+			$display("correct: %.12g x %.12g = %.12g",div_q,r,m2);
+			state <= 7;
 			sub_res <= $signed(m1) - $signed(m2);
 		 end
-		 if (state == 4) begin // 4 - subtraction
-			state <= 5;
+		 if (state == 7) begin //
+			state <= 8;
 			div_y <= sub_res;
 			div_x <= param_m;
 	 		div_start <= 1;
 		 end
-		 if (state == 5) begin // 5 - division 3
+		 if (state == 8) begin //
 		 	if (div_done == 1) begin
 				rand <= div_r;
 				//$display("%g: Generated random number %g",$time,div_r);
 		 		state <= 0;
-        done <= 1;
+        	done <= 1;
 		 	end
 			// int_seed <= 
 		 end

@@ -46,17 +46,20 @@ module mult#(
 
 always @(posedge clk) begin : proc_mult
 	if (rst == 1) begin
+
 		state <= 0;
 		ctrl_done <= 0;
 	end else begin
 		if(ctrl_enable) begin 
 			if (state == 0) begin
+				$display(" -- loading inputs");
 				// sample inputs on trigger
 				a <= data_multiplicand;
 				b <= data_multiplier;
 				state <= 1;
 			end
 			if(state == 1) begin
+				$display(" -- starting: state=%g, a=%.12g, b=%.12g",state,a,b);
 				accum = 0;
 				for (i = 0; i < in_width; i=i+1) begin
 					for (j = 0; j < in_width; j=j+1) begin
@@ -71,6 +74,7 @@ always @(posedge clk) begin : proc_mult
 				data_result <= accum;
 				ctrl_done <= 1;
 				state <= 0;
+				$display(" -- done a=%.12g, b=%.12g = %.12g",a,b,accum);
 			end
 		end
 	end
