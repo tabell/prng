@@ -82,7 +82,7 @@ module tb_prng;
       while (done == 1) begin // loop until done signal deasserted
       #100;
       end
-      if (rand != test_out[counter-1]) $error("\033[1;31m[ERROR]\033[0m wrong result");
+      if (rand != test_out[counter-1]) $display("\033[1;31m[ERROR]\033[0m wrong result");
       seed <= rand;
       $display("%g: seed=%.10h rand=%.10h, start=%g, done=%g, cont=%g",$time,seed,rand,start,done,cont);
       #50;
