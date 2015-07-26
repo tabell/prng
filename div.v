@@ -77,7 +77,7 @@ always @(posedge clk) begin : proc_divide
 			end
 		end
 		if (state == 2) begin 
-			if ($signed(dividend) > $signed(divisor)) begin
+			if ($signed(dividend) >= $signed(divisor)) begin
 				dividend <= ($signed(dividend) - $signed(divisor));
 				tmp_q <= ($signed(tmp_q) + 1);
 			end
