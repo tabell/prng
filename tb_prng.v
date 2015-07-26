@@ -27,8 +27,6 @@ module tb_prng;
 	prng uut (
 		.clk(clk), 
 		.rst(rst), 
-		.m(m), 
-		.a(a), 
 		.seed(seed), 
 		.start(start), 
 		.cont(cont), 

@@ -17,6 +17,7 @@ reg [31:0] divisor; // number to divide by
 reg [5:0] m; // length of dividend in bits
 reg [5:0] n; // length of divisor in bits
 reg [4:0] i; // iteration counter
+reg [4:0] i2; // iteration counter
 reg [31:0] tmp_q;
 reg [31:0] tmp2;
 reg [4:0] tmp3;
@@ -37,13 +38,14 @@ always @(posedge clk) begin : proc_divide
 		tmp_q <= 0;
 		r <= 0;
 		trivial <= 0;
+    i <= 0;
 
-		for (i = 0; i < 31; i = i +1) begin
-		  	if (y[i] == 1) begin
-		  		m <= i;
+		for (i2 = 0; i2 < 31; i2 = i2 +1) begin
+		  	if (y[i2] == 1) begin
+		  		m <= i2;
 		  	end
-		  	if (x[i] == 1) begin
-		  		n <= i;
+		  	if (x[i2] == 1) begin
+		  		n <= i2;
 		  	end
 		end
 	end else begin

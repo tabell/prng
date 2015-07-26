@@ -14,8 +14,6 @@
 module prng (
 	input clk,    // Clock
 	input rst,  // reset
-	input [31:0] m, // initially 2^31 - 1 = 2,147,483,647
-	input [31:0] a, // initially 16,807
 	input [31:0] seed, // initially 5,7,9,11
 	input start,
 	input cont,
@@ -96,13 +94,11 @@ always @(posedge clk) begin
 		 if (state == 0) begin  // 0 - idle
 		 	if (start == 1) begin
 		 		// store in case inputs change
-		 		param_m <= m;
-		 		param_a <= a;
 		 	  int_seed <= seed;
 		 		// start first op
 				div_start <= 1; // this division is not necessary as per gebali in class june 25
-				div_y <= m;
-				div_x <= a;
+				div_y <= param_m;
+				div_x <= param_a;
 		 		state <=1;
 		 	end 
       else done <= 0;
