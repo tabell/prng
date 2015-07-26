@@ -86,7 +86,7 @@ module tb_prng;
       end
       if (rand != test_out[counter-1]) $error("\033[1;31m[ERROR]\033[0m wrong result");
       seed <= rand;
-      $display("%g: rand=%.10g, start=%g, done=%g, cont=%g",$time,rand,start,done,cont);
+      $display("%g: seed=%.10h rand=%.10h, start=%g, done=%g, cont=%g",$time,seed,rand,start,done,cont);
       #50;
     end
    // #100000;
