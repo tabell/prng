@@ -70,7 +70,7 @@ module tb_prng;
 		// sel <= 1;
 
 //    $monitor("rand=%.10g, start=%g, done=%g, cont=%g",rand,start,done,cont);
-    while (counter < 4) begin
+    while (counter < 1) begin
     	seed <= test_in[counter];
 		  #100 start <=1; // start generation
       counter <= counter + 1;

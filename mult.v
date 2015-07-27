@@ -25,7 +25,7 @@ module mult#(
 	(
     input [in_width-1:0] data_multiplicand,
     input [in_width-1:0] data_multiplier,
-    output reg [out_width-1:0] data_result,
+    output reg [in_width-1:0] data_result,
     input ctrl_enable,
     output reg ctrl_done,
     input rst,
@@ -58,16 +58,21 @@ always @(posedge clk) begin : proc_mult
 			b <= data_multiplier;
 			ctrl_done <= 0;
 			state <= 2;
+			i <= 0;
+			accum <= 0;
 		end
 		if(state == 2) begin
-			accum = 0;
-			for (i = 0; i < in_width; i=i+1) begin
-				for (j = 0; j < in_width; j=j+1) begin
-					pp = ((a[i] & b[j]));
-					accum = accum + (pp<<(i+j));
+			if (i > 31) begin
+				state <= 3;
+			end else begin
+				if (a[i] != 0) begin
+					accum <= accum + (b<<i);
 				end
+				i <= i + 1;
 			end
-			data_result <= accum;
+		end
+		if(state == 3) begin
+			data_result <= accum[31:0];
 			if (ctrl_enable == 0) begin
 				state <= 0;
 				ctrl_done <= 0;

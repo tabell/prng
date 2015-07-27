@@ -14,7 +14,7 @@ module mult_tb;
 	reg rst;
 
 	// Outputs
-	wire [out_width-1:0] data_result;
+	wire [in_width-1:0] data_result;
 	wire ctrl_done;
 
 	// Instantiate the Unit Under Test (UUT)
@@ -50,15 +50,15 @@ module mult_tb;
 			#10;
 		end
 		ctrl_enable <= 0;
-		if (data_result != data_multiplicand*data_multiplier) $error("\033[1;31m[ERROR]\033[0m wrong result");
+		if (data_result != data_multiplicand*data_multiplier) $display("\033[1;31m[ERROR]\033[0m wrong result");
 		#10;
-		data_multiplicand <= 500;
-		data_multiplier <= 111;
+		data_multiplicand <= 'h3f58;
+		data_multiplier <= 'hb14;
 		#100 ctrl_enable <= 1;
 		while (ctrl_done == 0) begin
 			#10;
 		end
-		if (data_result != data_multiplicand*data_multiplier) $error("\033[1;31m[ERROR]\033[0m wrong result");
+		if (data_result != data_multiplicand*data_multiplier) $display("\033[1;31m[ERROR]\033[0m wrong result");
 		$finish;
 
 	end

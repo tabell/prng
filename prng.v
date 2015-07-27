@@ -105,6 +105,7 @@ always @(posedge clk) begin
 		 end
 		 if (state == 1) begin //
 		 	if (div_done == 1) begin
+				$display("state 2: int_seed = %.10h",int_seed);
 		 		// finish this division
 				q <= div_q;
 				r <= div_r;
@@ -117,6 +118,7 @@ always @(posedge clk) begin
 		 end
 		 if (state == 2) begin //
 		 	if (div_done == 1) begin
+				$display("state 2: div_q = %.10h, div_r = %.10h",div_q, div_r);
 		 		state <= 3;
 
 				z <= div_q;
@@ -134,13 +136,17 @@ always @(posedge clk) begin
 		 end
 		 if (state == 3) begin
 		 	if (mult_done == 1) begin
+				$display("state 3: mult_out = %.10h",mult_out);
 			 	state <= 4;
 			 	mult_enable <= 0;
 				m1 <= mult_out;
-				$display("Got a correct result");
+				
 			end
 		 end
 		 if (state == 4) begin
+				$display("state 4: div_q = %.10h, r = %.10h",div_q, r);
+				// div_q is correct in hardware
+				// r is correct in hardware
 				state <= 5;
 				mult_enable <= 1;
 				mult_in_a <= div_q;
@@ -148,16 +154,21 @@ always @(posedge clk) begin
 		 end
 		 if (state == 5) begin 
 		 	if (mult_done == 1) begin
+				$display("state 5: mult_out = %.10h",mult_out);
 				m2 <= mult_out;
 				state <= 6;
 				mult_enable <= 0;
 			end
 		 end
 		 if (state == 6) begin //
+			$display("state 6: signed(m1) = %.10h, signed(m2) = %.10h",$signed(m1),$signed(m2));
+			// $signed(m2) is wrong in hardware
+			
 			state <= 7;
 			sub_res <= $signed(m1) - $signed(m2);
 		 end
 		 if (state == 7) begin //
+		 $display("state 7: sub_res= %.10h",sub_res);
 			state <= 8;
 			div_y <= sub_res;
 			div_x <= param_m;
@@ -165,7 +176,9 @@ always @(posedge clk) begin
 		 end
 		 if (state == 8) begin //
 		 	if (div_done == 1) begin
+			$display("state 8: div_r = %.10h",div_r);
 				rand <= div_r;
+				//rand <= 'h755735EB;
 		 		state <= 0;
         	done <= 1;
 		 	end

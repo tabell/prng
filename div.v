@@ -38,7 +38,7 @@ always @(posedge clk) begin : proc_divide
 		tmp_q <= 0;
 		r <= 0;
 		trivial <= 0;
-    i <= 31;
+    i <= 0;
 
 		for (i2 = 0; i2 < 31; i2 = i2 +1) begin
 		  	if (y[i2] == 1) begin
@@ -51,7 +51,7 @@ always @(posedge clk) begin : proc_divide
 	end else begin
 		if (state == 0) begin 
 			// FSM housekeeping
-			i <= i + 1;
+
 			done <= 0;
 			// algorithm
 			tmp3 <= $signed(m) - $signed(n);
